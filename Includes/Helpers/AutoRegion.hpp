@@ -3,29 +3,29 @@
 
 #include "types.h"
 
-namespace CTRPluginFramework
-{
-    enum Region
-    {
+
+namespace CTRPluginFramework {
+
+    enum Region {
         USA,
         EUR
     };
 
-    class AutoRegion
-    {
+    class AutoRegion {
     public:
-
         // Constructor
         AutoRegion(u32 usa, u32 eur);
-        ~AutoRegion(){}
+        ~AutoRegion() {}
 
         // Return the value according to the current region
-        u32   operator()(void) const;
+        u32   operator () (void) const;
 
         // Properties
         const u32 Usa;
         const u32 Eur;
     };
+
 }
+
 
 #endif

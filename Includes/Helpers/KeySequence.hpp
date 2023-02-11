@@ -7,30 +7,29 @@
 
 #include <vector>
 
-namespace CTRPluginFramework
-{
+
+namespace CTRPluginFramework {
+
     using KeyVector = std::vector<Key>;
 
-    class   KeySequence
-    {
+    class   KeySequence {
     public:
-
         KeySequence(KeyVector sequence);
-        ~KeySequence(){}
+        ~KeySequence() {}
 
         /**
          * \brief Check the sequence
          * \return true if the sequence is completed, false otherwise
          */
-        bool  operator()(void);
+        bool  operator () (void);
 
     private:
-
         KeyVector   _sequence;
         Clock       _timer;
         int         _indexInSequence;
-        
     };
+
 }
+
 
 #endif

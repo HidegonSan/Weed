@@ -6,16 +6,17 @@
 #include <stack>
 #include "HoldKey.hpp"
 
-namespace CTRPluginFramework
-{
+
+namespace CTRPluginFramework {
+
     using VoidMethod = void(*)(void);
     using ArgMethod = void(*)(void *);
     using StringVector = std::vector<std::string>;
-    struct QuickMenuItem
-    {
-        enum class ItemType
-        {
-            Entry, SubMenu
+
+    struct QuickMenuItem {
+        enum class ItemType {
+            Entry,
+            SubMenu
         };
 
         QuickMenuItem(const std::string &name, const ItemType itemType);
@@ -24,11 +25,10 @@ namespace CTRPluginFramework
         const ItemType    itemType;
     };
 
-    struct QuickMenuEntry : QuickMenuItem
-    {
-        enum class MethodType
-        {
-            VOID, ARG
+    struct QuickMenuEntry : QuickMenuItem {
+        enum class MethodType {
+            VOID,
+            ARG
         };
 
         QuickMenuEntry(const std::string &name, VoidMethod method);
@@ -36,31 +36,28 @@ namespace CTRPluginFramework
         ~QuickMenuEntry();
 
         MethodType      methodType;
-        union
-        {
+        union {
             VoidMethod  voidMethod;
             ArgMethod   argMethod;
         };
         void            *methodArg;
     };
 
-    struct QuickMenuSubMenu : QuickMenuItem
-    {
+    struct QuickMenuSubMenu : QuickMenuItem {
         QuickMenuSubMenu(const std::string &name);
         QuickMenuSubMenu(const std::string &name, const std::vector<QuickMenuItem *> &items);
         ~QuickMenuSubMenu();
+
         void    operator += (QuickMenuItem *item);
         void    operator -= (QuickMenuItem *item);
 
         std::vector<QuickMenuItem *>    items;
     };
 
-    class QuickMenu
-    {
-    public:        
-        ~QuickMenu();        
+    class QuickMenu {
+    public:
+        ~QuickMenu();
         static QuickMenu &GetInstance(void);
-
         void     ChangeHotkey(u32 newHotkey);
 
         void    operator += (QuickMenuItem *item);
@@ -74,9 +71,10 @@ namespace CTRPluginFramework
         QuickMenuSubMenu                *_subMenuOpened;
         std::vector<QuickMenuItem *>    _root;
         std::stack<QuickMenuSubMenu *>  _submenus;
-
         static QuickMenu                _instance;
     };
+
 }
+
 
 #endif

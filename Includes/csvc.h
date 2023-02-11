@@ -26,8 +26,7 @@ extern "C" {
 #define PA_FROM_VA(addr)        PA_RWX(svcConvertVAToPA((void *)addr, false))
 
 /// Operations for svcControlService
-typedef enum ServiceOp
-{
+typedef enum ServiceOp {
     SERVICEOP_STEAL_CLIENT_SESSION = 0, ///< Steal a client session given a service or global port name
     SERVICEOP_GET_NAME,                 ///< Get the name of a service or global port given a client or session handle
 } ServiceOp;
@@ -159,8 +158,7 @@ Result svcCopyHandle(Handle *out, Handle outProcess, Handle in, Handle inProcess
 Result svcTranslateHandle(u32 *outKAddr, char *outClassName, Handle in);
 
 /// Operations for svcControlProcess
-typedef enum ProcessOp
-{
+typedef enum ProcessOp {
     PROCESSOP_GET_ALL_HANDLES,  ///< List all handles of the process, varg3 can be either 0 to fetch all handles, or token of the type to fetch
                                 ///< s32 count = svcControlProcess(handle, PROCESSOP_GET_ALL_HANDLES, (u32)&outBuf, 0)
                                 ///< Returns how many handles were found

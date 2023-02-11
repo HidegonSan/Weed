@@ -3,8 +3,9 @@
 
 #include "CTRPluginFramework/Menu/MenuEntry.hpp"
 
-namespace CTRPluginFramework
-{
+
+namespace CTRPluginFramework {
+
     /**
      * \brief Return the arg of an entry \n
      * If the arg doesn't exist (nullptr) a new one is created calling the default type constructor
@@ -13,17 +14,15 @@ namespace CTRPluginFramework
      * \return A pointer to the arg (like reinterpret_cast<T *>(entry->GetArg()))
      */
     template <typename T>
-    T   *GetArg(MenuEntry *entry)
-    {
+    T   *GetArg(MenuEntry *entry) {
         T   *arg = reinterpret_cast<T *>(entry->GetArg());
 
-        if (arg == nullptr)
-        {
+        if (arg == nullptr) {
             arg = new T();
             entry->SetArg(arg);
         }
 
-        return (arg);
+        return arg;
     }
 
     /**
@@ -35,18 +34,18 @@ namespace CTRPluginFramework
     * \return A pointer to the arg (like reinterpret_cast<T *>(entry->GetArg()))
     */
     template <typename T>
-    T   *GetArg(MenuEntry *entry, T defaultValue)
-    {
+    T   *GetArg(MenuEntry *entry, T defaultValue) {
         T   *arg = reinterpret_cast<T *>(entry->GetArg());
 
-        if (arg == nullptr)
-        {
+        if (arg == nullptr) {
             arg = new T(defaultValue);
             entry->SetArg(arg);
         }
 
-        return (arg);
+        return arg;
     }
+
 }
+
 
 #endif
