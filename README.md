@@ -1,30 +1,32 @@
-# CTRPluginFramework - Blank Template
-A blank CTRPF plugin to be used by [Luma3DS with plugin loader](https://github.com/Nanquitas/Luma3DS/releases).
+# Weed
 
-A list of [all the code types supported by the ActionReplay is available here](https://gist.github.com/Nanquitas/d6c920a59c757cf7917c2bffa76de860).
+Weed is a free and open source mod framework for Yo-kai Watch Shinuchi v1.2
+<!-- | [Website](https://example.com) | [YouTube](https://example.com) | [Twitter](https://example.com) | [Discord](https://example.com) | -->
+## Usage
 
-Join the discord for help: https://discord.gg/z4ZMh27 
-## Action Replay Usage
+0. Prepare the environment (devkitARM, libctrpf, 3gxtool)
+1. Clone this repository
+2. Enter the directory
 
-[![Click to play on YouTube](https://img.youtube.com/vi/c2258P9wKkA/0.jpg)](https://www.youtube.com/watch?v=c2258P9wKkA)
+Command:
 
+```bash
+git clone git@github.com:HidegonSan/Weed.git
+```
 
-## Screenshots
+## Issues
 
-![](https://i.imgur.com/ayvcaN0.png)
-![](https://i.imgur.com/9OJop01.png)
-##### Search
-![](https://i.imgur.com/gczUI1r.png)
-![](https://i.imgur.com/Yhhcsot.png)
-![](https://i.imgur.com/7lVmuDd.png)
-##### Action Replay
-![](https://i.imgur.com/uW6lnjm.png)
-![](https://i.imgur.com/4QAEgSO.png)
-![](https://i.imgur.com/bJFQw04.png)
-![](https://i.imgur.com/8pZhhmo.png)
-![](https://i.imgur.com/b3Gl29H.png)
-##### Hex Editor
-![](https://i.imgur.com/8z2DCcm.png)
-![](https://i.imgur.com/t3gutXU.png)
-![](https://i.imgur.com/U4ratx4.png)
-![](https://i.imgur.com/uJBJZ8K.png)
+If you have problems, please [open an Issue](https://github.com/HidegonSan/Weed/issues/new)<!-- or ask for help on [Discord](https://example.com) -->
+
+## License
+
+MIT
+
+## Links
+
+[CTRPluginFramework](https://gitlab.com/thepixellizeross/ctrpluginframework)
+[CTRPluginFramework-BlankTemplate](https://github.com/PabloMK7/CTRPluginFramework-BlankTemplate)
+[CTRPF Default Sounds](https://cdn.discordapp.com/attachments/479233979271086090/835472532697382932/CTRPF_DefaultSounds.zip)
+[3gxtool](https://gitlab.com/thepixellizeross/3gxtool)
+[Luma3DS 3GX Loader](https://github.com/Nanquitas/Luma3DS)
+[devkitPro](https://devkitpro.org/)
