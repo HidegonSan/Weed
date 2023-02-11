@@ -5,9 +5,10 @@
 #include "Helpers.hpp"
 #include "Unicode.h"
 
-namespace CTRPluginFramework
-{
-    using StringVector = std::vector<std::string>;
 
+namespace CTRPluginFramework {
+    using StringVector = std::vector<std::string>;
 }
+
+
 #endif
