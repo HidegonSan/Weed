@@ -29,13 +29,15 @@ namespace CTRPluginFramework {
         s64     startAddress = 0;
         u32 *   found;
 
-        if (R_FAILED(svcOpenProcess(&processHandle, 16)))
+        if (R_FAILED(svcOpenProcess(&processHandle, 16))) {
             return;
+        }
 
         svcGetProcessInfo(&textTotalSize, processHandle, 0x10002);
         svcGetProcessInfo(&startAddress, processHandle, 0x10005);
-        if(R_FAILED(svcMapProcessMemoryEx(CUR_PROCESS_HANDLE, 0x14000000, processHandle, (u32)startAddress, textTotalSize)))
+        if(R_FAILED(svcMapProcessMemoryEx(CUR_PROCESS_HANDLE, 0x14000000, processHandle, (u32)startAddress, textTotalSize))) {
             goto exit;
+        }
 
         found = (u32 *)Utils::Search<u32>(0x14000000, (u32)textTotalSize, pattern);
 
@@ -59,7 +61,7 @@ exit:
 
 
     // This function is called when the process exits
-    // Useful to save settings, undo patchs or clean up things
+    // Useful to save settings, undo patches or clean up things
     void    OnProcessExit(void) {
         ToggleTouchscreenForceOn();
     }
@@ -78,7 +80,7 @@ exit:
         menu->Run();
 
         delete menu;
-        return (0);
+        return 0;
     }
 
 }

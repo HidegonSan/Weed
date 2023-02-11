@@ -8,13 +8,12 @@
 #include <string>
 #include <tuple>
 
-namespace CTRPluginFramework
-{
+
+namespace CTRPluginFramework {
     #define OSDManager (*_OSDManager::GetInstance())
 
     using OSDMITuple = std::tuple<bool, std::string, u32, u32, bool>;
-    struct OSDMI
-    {
+    struct OSDMI {
         OSDMI &operator=(const std::string &str);
         OSDMI &operator=(const OSDMITuple &tuple);
         OSDMI &SetPos(u32 posX, u32 posY);
@@ -28,17 +27,17 @@ namespace CTRPluginFramework
         OSDMITuple  &data;
     };
 
-    class _OSDManager
-    {
+    class _OSDManager {
     public:
         ~_OSDManager(void);
 
-        static _OSDManager  *GetInstance(void);      
-        
+        static _OSDManager  *GetInstance(void);
+
         OSDMI   operator[](const std::string &key);
         void    Remove(const std::string &key);
         void    Lock(void);
         void    Unlock(void);
+
     private:
 
         _OSDManager(void);
@@ -50,6 +49,8 @@ namespace CTRPluginFramework
         LightLock   _lock;
         std::map<std::string, std::tuple<bool, std::string, u32, u32, bool>> _items;
     };
+
 }
+
 
 #endif
