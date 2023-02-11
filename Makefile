@@ -10,7 +10,7 @@ include $(DEVKITARM)/3ds_rules
 CTRPFLIB	?=	$(DEVKITPRO)/libctrpf
 
 TARGET		:= 	$(notdir $(CURDIR))
-PLGINFO 	:= 	CTRPluginFramework.plgInfo
+PLGINFO 	:= 	Weed.plgInfo
 
 BUILD		:= 	Build
 INCLUDES	:= 	Includes
@@ -71,7 +71,7 @@ $(BUILD):
 
 #---------------------------------------------------------------------------------
 clean:
-	@echo clean ... 
+	@echo clean ...
 	@rm -fr $(BUILD) $(OUTPUT).3gx $(OUTPUT).elf
 
 re: clean all
@@ -100,7 +100,7 @@ $(OUTPUT).3gx : $(OFILES)
 %.3gx: %.elf
 #---------------------------------------------------------------------------------
 	@echo creating $(notdir $@)
-	@3gxtool -s $(word 1, $^) $(TOPDIR)/$(PLGINFO) $@
+	@3gxtool -s -d $(word 1, $^) $(TOPDIR)/$(PLGINFO) $@
 
 -include $(DEPENDS)
 
