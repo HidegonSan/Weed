@@ -2,9 +2,10 @@
 
 
 namespace CTRPluginFramework {
+
     KeySequence::KeySequence(KeyVector sequence) : _sequence(sequence), _indexInSequence(0) { }
 
-    bool  KeySequence::operator()(void) {
+    bool  KeySequence::operator () (void) {
         if (Controller::IsKeyDown(_sequence[_indexInSequence])) {
             _indexInSequence++;
 
@@ -23,4 +24,5 @@ namespace CTRPluginFramework {
 
         return false;
     }
+
 }

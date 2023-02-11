@@ -20,7 +20,7 @@ namespace CTRPluginFramework {
          * \brief Check if the key is pressed
          * \return If the key(s) were holded the required amount of time
          */
-        bool    operator()(void);
+        bool    operator () (void);
 
         /**
          * \brief Change the keys that needs to be pressed

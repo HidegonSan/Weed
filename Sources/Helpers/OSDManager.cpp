@@ -5,7 +5,7 @@ namespace CTRPluginFramework {
 
     _OSDManager*  _OSDManager::_singleton = nullptr;
 
-    OSDMI&  OSDMI::operator=(const std::string &str) {
+    OSDMI&  OSDMI::operator = (const std::string &str) {
         OSDManager.Lock();
         std::get<1>(data) = str;
         std::get<4>(data) = true;
@@ -13,7 +13,7 @@ namespace CTRPluginFramework {
         return (*this);
     }
 
-    OSDMI&  OSDMI::operator=(const OSDMITuple &tuple) {
+    OSDMI&  OSDMI::operator = (const OSDMITuple &tuple) {
         OSDManager.Lock();
         data = tuple;
         OSDManager.Unlock();
@@ -71,11 +71,11 @@ namespace CTRPluginFramework {
         LightLock_Unlock(&_lock);
     }
 
-    OSDMI   _OSDManager::operator[](const std::string &key) {
+    OSDMI   _OSDManager::operator [] (const std::string &key) {
         Lock();
         OSDMI i(_items[key]);
         Unlock();
-        return (i);
+        return i;
     }
 
     void    _OSDManager::Remove(const std::string& key) {

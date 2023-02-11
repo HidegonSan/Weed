@@ -5,13 +5,13 @@ namespace CTRPluginFramework {
 
     HoldKey::HoldKey(u32 keys, Time holdTime) : _goal(holdTime), _isHold(false), _keys(keys) { }
 
-    bool    HoldKey::operator()(void) {
+    bool    HoldKey::operator () (void) {
         bool isHold = Controller::IsKeysDown(_keys);
 
         // If currently hold
         if (isHold && _isHold && _timer.HasTimePassed(_goal)) {
             _isHold = false;
-            return (true);
+            return true;
         }
 
         if (isHold && !_isHold) {
@@ -25,7 +25,7 @@ namespace CTRPluginFramework {
         return false;
     }
 
-    void HoldKey::operator=(u32 newKeys) {
+    void HoldKey::operator = (u32 newKeys) {
         _keys = newKeys;
         _isHold = false;
         _timer.Restart();

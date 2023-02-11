@@ -47,6 +47,7 @@ namespace CTRPluginFramework {
         QuickMenuSubMenu(const std::string &name);
         QuickMenuSubMenu(const std::string &name, const std::vector<QuickMenuItem *> &items);
         ~QuickMenuSubMenu();
+
         void    operator += (QuickMenuItem *item);
         void    operator -= (QuickMenuItem *item);
 
@@ -57,7 +58,6 @@ namespace CTRPluginFramework {
     public:
         ~QuickMenu();
         static QuickMenu &GetInstance(void);
-
         void     ChangeHotkey(u32 newHotkey);
 
         void    operator += (QuickMenuItem *item);
@@ -71,7 +71,6 @@ namespace CTRPluginFramework {
         QuickMenuSubMenu                *_subMenuOpened;
         std::vector<QuickMenuItem *>    _root;
         std::stack<QuickMenuSubMenu *>  _submenus;
-
         static QuickMenu                _instance;
     };
 

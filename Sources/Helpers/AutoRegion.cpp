@@ -8,7 +8,7 @@ namespace CTRPluginFramework {
 
     AutoRegion::AutoRegion(u32 usa, u32 eur) : Usa(usa), Eur(eur) { }
 
-    u32    AutoRegion::operator()(void) const {
+    u32    AutoRegion::operator () (void) const {
         if (g_region == EUR) {
             return Eur;
         }

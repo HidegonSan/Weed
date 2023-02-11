@@ -37,11 +37,11 @@ namespace CTRPluginFramework {
         items.clear();
     }
 
-    void    QuickMenuSubMenu::operator+=(QuickMenuItem* item) {
+    void    QuickMenuSubMenu::operator += (QuickMenuItem* item) {
         items.push_back(item);
     }
 
-    void    QuickMenuSubMenu::operator-=(QuickMenuItem* item) {
+    void    QuickMenuSubMenu::operator -= (QuickMenuItem* item) {
         items.erase(std::remove(items.begin(), items.end(), item), items.end());
     }
 
@@ -59,15 +59,15 @@ namespace CTRPluginFramework {
         return _instance;
     }
 
-    void    QuickMenu::operator+=(QuickMenuItem* item) {
+    void    QuickMenu::operator += (QuickMenuItem* item) {
         _root.push_back(item);
     }
 
-    void    QuickMenu::operator-=(QuickMenuItem* item) {
+    void    QuickMenu::operator -= (QuickMenuItem* item) {
         _root.erase(std::remove(_root.begin(), _root.end(), item), _root.end());
     }
 
-    void    QuickMenu::operator()(void) {
+    void    QuickMenu::operator () (void) {
         if (!_hotkey()) {
             return;
         }
