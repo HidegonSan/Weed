@@ -14,7 +14,7 @@ PLGINFO 	:= 	Weed.plgInfo
 
 BUILD		:= 	Build
 INCLUDES	:= 	Includes
-SOURCES 	:= 	Sources
+SOURCES 	:= 	Sources Sources/Weed
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -22,7 +22,8 @@ SOURCES 	:= 	Sources
 ARCH		:=	-march=armv6k -mtune=mpcore -mfloat-abi=hard -mtp=soft
 
 CFLAGS		:=	$(ARCH) -Os -mword-relocations \
-				-fomit-frame-pointer -ffunction-sections -fno-strict-aliasing
+				-fomit-frame-pointer -ffunction-sections -fno-strict-aliasing \
+				-Wall -Wextra -Wno-unused -Wno-format
 
 CFLAGS		+=	$(INCLUDE) -D__3DS__
 
@@ -60,7 +61,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I $(CURDIR)/$(dir) ) \
 
 export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L $(dir)/lib)
 
-.PHONY: $(BUILD) clean all
+.PHONY: $(BUILD) clean all re send
 
 #---------------------------------------------------------------------------------
 all: $(BUILD)
@@ -76,6 +77,12 @@ clean:
 
 re: clean all
 
+send:
+ifeq ($(shell uname),Linux)
+	@python3 ./plugin-sender/send.py
+else
+	@python ./plugin-sender/send.py
+endif
 #---------------------------------------------------------------------------------
 
 else
